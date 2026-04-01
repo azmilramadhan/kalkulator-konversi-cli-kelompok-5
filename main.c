@@ -81,6 +81,7 @@ int main() {
         }
 
     } while(pilih == 0);
+    printf("HELLO WORLD");
     return 0;
 }
 
