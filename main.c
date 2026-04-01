@@ -42,6 +42,24 @@ void konversiJarak() {
     printf("Centimeter: %.2f cm\n", cm);
 }
 
+void konversiBerat() {
+    float kg;
+    printf("Masukkan berat (kg): ");
+    scanf("%f", &kg);
+
+    if (kg < 0) {
+        printf("Input tidak valid!\n");
+        return;
+    }
+
+    float gram = kg * 1000;
+    float pon = kg * 2.20462; // 1 kg = 2.20462 lbs
+
+    printf("\n=== HASIL KONVERSI BERAT ===\n");
+    printf("Gram: %.2f g\n", gram);
+    printf("Pons: %.2f lbs\n", pon);
+}
+
 int main() {
     int pilihan;
     menu();
@@ -56,7 +74,7 @@ int main() {
             konversiJarak();
             break;
         case 3:
-            printf("Fitur berat belum tersedia\n");
+            konversiBerat();
             break;
         case 4:
             printf("Fitur waktu belum tersedia\n");
