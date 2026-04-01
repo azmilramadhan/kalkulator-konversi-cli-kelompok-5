@@ -8,6 +8,22 @@ void menu() {
     printf("4. Konversi Waktu\n");
     
 }
+
+void konversiSuhu() {
+    float c, f, k;
+
+    printf("Masukkan suhu dalam Celcius: ");
+    scanf("%f", &c);
+
+    f = (c * 9/5) + 32;
+    k = c + 273.15;        
+
+    printf("\n=== HASIL KONVERSI SUHU ===\n");
+    printf("Celcius    : %.2f °C\n", c);
+    printf("Fahrenheit : %.2f °F\n", f);
+    printf("Kelvin     : %.2f K\n", k);
+}
+
 void konversiJarak() {
     float km;
     printf("Masukkan jarak (km): ");
@@ -34,10 +50,10 @@ int main() {
 
     switch(pilihan) {
         case 1:
-            printf("Fitur suhu belum tersedia\n");
+            konversiSuhu();
             break;
         case 2:
-            printf("Fitur jarak belum tersedia\n");
+            konversiJarak();
             break;
         case 3:
             printf("Fitur berat belum tersedia\n");
