@@ -1,15 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void menu() {
-    printf("=== KALKULATOR KONVERSI ===\n");
-    printf("1. Konversi Suhu\n");
-    printf("2. Konversi Jarak\n");
-    printf("3. Konversi Berat\n");
-    printf("4. Konversi Waktu\n");
-    
-}
-
+void konversiSuhu();
+void konversiJarak();
+void konversiBerat();
+void konversiWaktu();
 void clearScreen() {
 #ifdef _WIN32
     system("cls");
@@ -25,7 +20,6 @@ void header() {
     printf("========================================\n");
 }
 
-
 void menu() {
     printf("\n");
     printf("  [1] Konversi Suhu\n");
@@ -38,7 +32,6 @@ void menu() {
 }
 
 void footer() {
-
     printf("\n=======================================\n");
 }
 
@@ -69,7 +62,7 @@ int main() {
                 konversiJarak();
                 break;
             case 3:
-                
+                konversiBerat(); // <-- diperbaiki
                 break;
             case 4:
                 konversiWaktu();
@@ -87,7 +80,7 @@ int main() {
             enterToContinue();
         }
 
-    } while(pilih != 0);
+    } while(pilih == 0);
     return 0;
 }
 
@@ -135,12 +128,13 @@ void konversiBerat() {
     }
 
     float gram = kg * 1000;
-    float pon = kg * 2.20462; // 1 kg = 2.20462 lbs
+    float pon = kg * 2.20462;
 
     printf("\n=== HASIL KONVERSI BERAT ===\n");
     printf("Gram: %.2f g\n", gram);
     printf("Pons: %.2f lbs\n", pon);
 }
+
 void konversiWaktu(){
     float jam;
     float menit, detik;
@@ -156,4 +150,3 @@ void konversiWaktu(){
     printf("%.2f jam = %.2f menit\n", jam, menit);
     printf("%.2f jam = %.2f detik\n", jam, detik);
 }
-
