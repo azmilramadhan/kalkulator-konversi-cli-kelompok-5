@@ -59,6 +59,21 @@ void konversiBerat() {
     printf("Gram: %.2f g\n", gram);
     printf("Pons: %.2f lbs\n", pon);
 }
+void konversiWaktu(){
+    float jam;
+    float menit, detik;
+
+    printf("Konversi Waktu\n");
+    printf("Masukkan jumlah jam:");
+    scanf ("%f", &jam);
+
+    menit = jam*60;
+    detik = jam*3600;
+
+    printf("Hasil konversi\n");
+    printf("%.2f jam = %.2f menit\n", jam, menit);
+    printf("%.2f jam = %.2f detik\n", jam, detik);
+}
 
 int main() {
     int pilihan;
@@ -77,7 +92,7 @@ int main() {
             konversiBerat();
             break;
         case 4:
-            printf("Fitur waktu belum tersedia\n");
+            konversiWaktu();
             break;
         default:
             printf("Pilihan tidak valid\n");
