@@ -6,6 +6,24 @@ void menu() {
     printf("2. Konversi Jarak\n");
     printf("3. Konversi Berat\n");
     printf("4. Konversi Waktu\n");
+    
+}
+void konversiJarak() {
+    float km;
+    printf("Masukkan jarak (km): ");
+    scanf("%f", &km);
+
+    if (km < 0) {
+        printf("Input tidak valid!\n");
+        return;
+    }
+
+    float meter = km * 1000;
+    float cm = km * 100000;
+
+    printf("Hasil konversi:\n");
+    printf("Meter: %.2f m\n", meter);
+    printf("Centimeter: %.2f cm\n", cm);
 }
 
 int main() {
