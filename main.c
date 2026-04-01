@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void menu() {
     printf("=== KALKULATOR KONVERSI ===\n");
@@ -7,6 +8,87 @@ void menu() {
     printf("3. Konversi Berat\n");
     printf("4. Konversi Waktu\n");
     
+}
+
+void clearScreen() {
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+void header() {
+    printf("\n");
+    printf("========================================\n");
+    printf("    KALKULATOR KONVERSI SATUAN CLI      \n");
+    printf("========================================\n");
+}
+
+
+void menu() {
+    printf("\n");
+    printf("  [1] Konversi Suhu\n");
+    printf("  [2] Konversi Jarak\n");
+    printf("  [3] Konversi Berat\n");
+    printf("  [4] Konversi Waktu\n");
+    printf("  [0] Keluar\n");
+    printf("\n");
+    printf("  Pilih menu >>> ");
+}
+
+void footer() {
+
+    printf("\n=======================================\n");
+}
+
+void enterToContinue() {
+    printf("\nTekan ENTER untuk kembali...");
+    getchar();
+}
+
+int main() {
+    int pilih;
+
+    do {
+        clearScreen();
+        header();
+        menu();
+
+        scanf("%d", &pilih);
+        getchar(); 
+
+        clearScreen();
+        header();
+
+        switch(pilih) {
+            case 1:
+                konversiSuhu();
+                break;
+            case 2:
+                konversiJarak();
+                break;
+            case 3:
+                
+                break;
+            case 4:
+                konversiWaktu();
+                break;
+            case 0:
+                printf("Terima kasih sudah menggunakan program ini.\n");
+                break;
+            default:
+                printf("Pilihan tidak valid!\n");
+        }
+
+        footer();
+
+        if(pilih != 0) {
+            enterToContinue();
+        }
+
+    } while(pilih != 0);
+    return 0;
 }
 
 void konversiSuhu() {
@@ -75,28 +157,3 @@ void konversiWaktu(){
     printf("%.2f jam = %.2f detik\n", jam, detik);
 }
 
-int main() {
-    int pilihan;
-    menu();
-    printf("Pilih menu: ");
-    scanf("%d", &pilihan);
-
-    switch(pilihan) {
-        case 1:
-            konversiSuhu();
-            break;
-        case 2:
-            konversiJarak();
-            break;
-        case 3:
-            konversiBerat();
-            break;
-        case 4:
-            konversiWaktu();
-            break;
-        default:
-            printf("Pilihan tidak valid\n");
-    }
-
-    return 0;
-}
